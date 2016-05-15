@@ -1,0 +1,13 @@
+{
+    "links": [{
+        "title": "Issue Tracker",
+        "shot": "jira.png",
+        "url": "http://jira.example.com/",
+        "description": "Homepage for all issues"
+    }, {
+        "title": "Demo Servers",
+        "shot": "demo.png",
+        "url": "http://demo.example.com/",
+        "description": "List of available demo servers"
+    }]
+}

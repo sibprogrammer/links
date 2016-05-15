@@ -1,0 +1,21 @@
+{
+  "name": "links",
+  "version": "1.0.0",
+  "description": "Links aggregation page.",
+  "main": "index.html",
+  "author": "Alexei Yuzhakov",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap": "^3.3.6",
+    "browserify": "^13.0.1",
+    "browserify-data": "^0.2.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^4.0.0",
+    "gulp-open": "^2.0.0",
+    "gulp-rsync": "0.0.6",
+    "jquery": "^2.2.3",
+    "vinyl-source-stream": "^1.1.0",
+    "yargs": "^4.7.0"
+  }
+}

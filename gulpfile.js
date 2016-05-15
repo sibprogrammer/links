@@ -92,7 +92,7 @@ gulp.task('deploy', () => {
         throw "Please specify host using --host parameter.";
     }
 
-    return gulp.src('dist/**')
+    gulp.src('dist/**')
         .pipe(rsync({
             root: 'dist/',
             hostname: settings.host,

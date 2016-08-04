@@ -1,4 +1,7 @@
-$ = jQuery = require('jquery');
+let $ = require('jquery');
+let jQuery = require('jquery');
+window.$ = $;
+window.jQuery = jQuery;
 let bootstrap = require('bootstrap');
 
 $(function() {

@@ -10,6 +10,7 @@ let browserify = require('browserify');
 let browserifyData = require('browserify-data');
 let source = require('vinyl-source-stream');
 let argv = require('yargs').argv;
+let babel = require('babelify');
 
 let config = {
     devPort: 9000,
@@ -68,6 +69,7 @@ gulp.task('js', () => {
 
     browserify(config.paths.mainJs)
         .transform(browserifyData)
+        .transform(babel)
         .bundle()
         .on('error', console.error.bind(console))
         .pipe(source('app.js'))

@@ -1,8 +1,8 @@
-let $ = require('jquery');
-let jQuery = require('jquery');
+const $ = require('jquery');
+const jQuery = require('jquery');
 window.$ = $;
 window.jQuery = jQuery;
-let bootstrap = require('bootstrap');
+const bootstrap = require('bootstrap');
 
 $(function() {
     let renderLinks = function(links) {

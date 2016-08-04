@@ -1,16 +1,16 @@
 /* jshint node: true */
 "use strict";
 
-let gulp = require('gulp');
-let concat = require('gulp-concat');
-let connect = require('gulp-connect');
-let open = require('gulp-open');
-let rsync = require('gulp-rsync');
-let browserify = require('browserify');
-let browserifyData = require('browserify-data');
-let source = require('vinyl-source-stream');
-let argv = require('yargs').argv;
-let babel = require('babelify');
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const connect = require('gulp-connect');
+const open = require('gulp-open');
+const rsync = require('gulp-rsync');
+const browserify = require('browserify');
+const browserifyData = require('browserify-data');
+const source = require('vinyl-source-stream');
+const argv = require('yargs').argv;
+const babel = require('babelify');
 
 let config = {
     devPort: 9000,

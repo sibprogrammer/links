@@ -3,6 +3,7 @@ const jQuery = require('jquery');
 window.$ = $;
 window.jQuery = jQuery;
 const bootstrap = require('bootstrap');
+require('babel-polyfill');
 
 $(function() {
     let renderLinks = function(links) {

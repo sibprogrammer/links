@@ -50,17 +50,16 @@ $(function() {
         $('.search-query').focus();
 
         if ($('body').hasClass('slides')) {
-            $(".slides").append('<div class="slides-filter"></div>')
-            function slide() {
-                for (var i = 0; i < links.length; i++) {
-                    $('.container .row').animate({ top: '-' + (i*100) + 'vh' },0,'linear').fadeIn(1000).delay(8000).fadeOut(1000);
+            $(".slides").append('<div class="slides-filter"></div>');
+            (function slide() {
+                links.forEach((link, i) => {
+                    $('.container .row').animate({ top: '-' + (i * 100) + 'vh' }, 0, 'linear').fadeIn(1000).delay(8000).fadeOut(1000);
                     $('.slides-filter').fadeIn(1000).delay(8000).fadeOut(1000);
-                }
-                $('.container .row').animate({ top: '0' },'0','linear',slide);
-            }
-            slide();
+                });
+                $('.container .row').animate({ top: '0' }, '0', 'linear', slide);
+            })();
         }
-    }
+    };
 
     if (window.location.href.indexOf('?slides') > -1) {
         $('body').addClass('slides');

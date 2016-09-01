@@ -1,5 +1,102 @@
-body { padding: 80px 0 40px 0; }
-.navbar-brand { background: url('/images/logo.png') no-repeat 10px 11px; padding: 15px 20px 12px 48px; }
-.thumbnail { margin-bottom: 0; }
-.thumbnail img { height: 168px; background-color: #eee; }
-.caption { margin-bottom: 20px; }
+body {
+    padding: 80px 0 40px 0;
+}
+.navbar-brand {
+    padding: 15px 20px 12px 48px;
+    background: url(../images/logo.png) 10px 11px no-repeat;
+}
+.thumbnail {
+    margin-bottom: 0;
+}
+.thumbnail img {
+    background-color: #eee;
+}
+.caption {
+    margin-bottom: 20px;
+}
+.slides {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: #222 url(../images/slides-bg.jpg) 50% 50% no-repeat;
+    background-size: cover;
+    font: 400 13px/1.4 Lato,"Helvetica Neue",Helvetica,sans-serif;
+}
+.slides-filter {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    content: "";
+    background: url(../images/slides-bg-filter.jpg) 50% 50% no-repeat;
+    background-size: cover;
+}
+.slides .navbar {
+    display: none;
+}
+.slides .container {
+    position: relative;
+    z-index: 100;
+    overflow: hidden;
+    width: 1560px;
+    height: 1080px;
+    padding: 0 60px;
+}
+.slides .container .row {
+    position: relative;
+}
+.slides .container .col-md-3 {
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100vh - 60px);
+    margin: 30px 0;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 0 30px #000;
+}
+.slides .thumbnail {
+    display: block;
+    margin-bottom: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #aaa;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+.slides .thumbnail img {
+    box-sizing: border-box;
+    max-height: calc(100vh - 380px);
+    border: 20px solid rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background: none;
+    box-shadow: 0 0 30px rgba(255,255,255,0.8);
+}
+.slides .thumbnail:before,
+.slides .thumbnail:after,
+.slides .caption h5 {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+    font-size: 58px;
+}
+.slides .thumbnail:before {
+    margin: -28px 0 20px;
+    content: attr(href);
+}
+.slides .thumbnail:after {
+    margin-top: 115px;
+    content: attr(data-original-title);
+}
+.slides .caption h5 {
+    margin-top: -185px;
+    color: #fff;
+    font-size: 80px;
+    font-weight: 600;
+    line-height: 110px;
+}

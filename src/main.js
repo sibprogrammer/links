@@ -6,9 +6,17 @@ const bootstrap = require('bootstrap');
 require('babel-polyfill');
 
 $(function() {
+    const isSlidesMode = window.location.href.indexOf('?slides') > -1;
+
     const renderLinks = (links) => {
         // last added, first shown
         links = links.reverse();
+
+        if (isSlidesMode) {
+            links.sort(() => {
+                return .5 - Math.random();
+            });
+        }
 
         const getLinkHtml = ({url, description, title, shot}) => {
             return `
@@ -61,7 +69,7 @@ $(function() {
         }
     };
 
-    if (window.location.href.indexOf('?slides') > -1) {
+    if (isSlidesMode) {
         $('body').addClass('slides');
     }
 

@@ -6,31 +6,24 @@ const bootstrap = require('bootstrap');
 require('babel-polyfill');
 
 $(function() {
-    let renderLinks = function(links) {
+    const renderLinks = (links) => {
         // last added, first shown
         links = links.reverse();
 
-        let getLinkHtml = (link) => {
+        const getLinkHtml = ({url, description, title, shot}) => {
             return `
                 <div class="col-xs-6 col-md-3">
-                    <a href="${link.url}" class="thumbnail" data-toggle="tooltip" data-placement="top" title="${link.description}">
-                        <img src="/images/shots/${link.shot}">
+                    <a href="${url}" class="thumbnail" data-toggle="tooltip" data-placement="top" title="${description || title}">
+                        <img src="/images/shots/${shot}">
                     </a>
                     <div class="caption">
-                        <h5>${link.title}</h5>
+                        <h5>${title}</h5>
                     </div>
                 </div>
             `;
-        };
-
-        for (let link of links) {
-            // use title in case of missed description
-            if ('undefined' === typeof link.description) {
-                link.description = link.title;
-            }
-
-            $('.container .row').append(getLinkHtml(link));
         }
+
+        $('.container .row').append(links.map(getLinkHtml));
 
         $('.search-query').on('keyup', (event) => {
             let value = event.target.value.toLowerCase();
@@ -45,7 +38,6 @@ $(function() {
                 }
                 return;
             }
-
             $.each(links, (index, item) => {
                 let text = item.title + ' ' + item.url + ' ' + item.description;
                 let toggle = (text.toLowerCase().indexOf(value) < 0 ? 'hide' : 'show');
@@ -56,7 +48,23 @@ $(function() {
 
         $('[data-toggle="tooltip"]').tooltip();
         $('.search-query').focus();
-    };
+
+        if ($('body').hasClass('slides')) {
+            $(".slides").append('<div class="slides-filter"></div>')
+            function slide() {
+                for (var i = 0; i < links.length; i++) {
+                    $('.container .row').animate({ top: '-' + (i*100) + 'vh' },0,'linear').fadeIn(1000).delay(8000).fadeOut(1000);
+                    $('.slides-filter').fadeIn(1000).delay(8000).fadeOut(1000);
+                }
+                $('.container .row').animate({ top: '0' },'0','linear',slide);
+            }
+            slide();
+        }
+    }
+
+    if (window.location.href.indexOf('?slides') > -1) {
+        $('body').addClass('slides');
+    }
 
     $.getJSON('/js/links.json')
         .done((data) => {
